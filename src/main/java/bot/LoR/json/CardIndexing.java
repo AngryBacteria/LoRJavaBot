@@ -51,6 +51,7 @@ public class CardIndexing {
         cardArray.addAll(List.of(getCardsArrayFromResourcesFile("set4-en_us.json")));
         cardArray.addAll(List.of(getCardsArrayFromResourcesFile("set5-en_us.json")));
         cardArray.addAll(List.of(getCardsArrayFromResourcesFile("set6-en_us.json")));
+        cardArray.addAll(List.of(getCardsArrayFromResourcesFile("set6cde-en_us.json")));
         return cardArray;
     }
 

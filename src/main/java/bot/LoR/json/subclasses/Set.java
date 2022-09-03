@@ -9,6 +9,7 @@ public enum Set {
     @SerializedName("Set4") SET4(4, "Empires of the Ascended", "http://dd.b.pvp.net/3_8_0/core/en_us/img/sets/set4_crispmip.png"),
     @SerializedName("Set5") SET5(5, "Beyond the Bandlewood", "http://dd.b.pvp.net/3_8_0/core/en_us/img/sets/set5_crispmip.png"),
     @SerializedName("Set6") SET6(6, "", ""),
+    @SerializedName("Set6cde") SET6CDE(7, "The Darkin Saga", "http://dd.b.pvp.net/3_14_0/core/en_us/img/sets/set6cde_crispmip.png"),
     CUSTOM(7, "Custom", "");
 
     private final int number;

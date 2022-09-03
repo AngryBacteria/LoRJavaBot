@@ -7,6 +7,7 @@ public enum Type {
     @SerializedName("Landmark") LANDMARK,
     @SerializedName("Spell") SPELL,
     @SerializedName("Ability") ABILITY,
-    @SerializedName("Trap") TRAP
+    @SerializedName("Trap") TRAP,
+    @SerializedName("Equipment") EQUIPMENT
 
 }

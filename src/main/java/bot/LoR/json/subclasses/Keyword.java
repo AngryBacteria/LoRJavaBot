@@ -42,14 +42,17 @@ public enum Keyword {
     @SerializedName("Vulnerable")VULNERABLE("Vulnerable", "The enemy can challenge this unit, forcing it to block."),
     @SerializedName("Spawn")SPAWN("Spawn", "Spawn"),
     @SerializedName("Boon")BOON("Boon", "Boon"),
+    @SerializedName("Hallowed")HALLOWED("Hallowed", "After I die, for the rest of the game when allies attack, hallow your first attacker giving it +1|+0 that round"),
+    @SerializedName("Evolve")EVOLVE("Evolve", "I have +2|+2 once you've given or summoned allies with 6+ other positive keywords this game."),
 
     //Not in files but should be existing
     @SerializedName("Fated")FATED("Fated", "Each round, the first time an allied card targets me, grant me +1|+1."),
     @SerializedName("Can block Elusives")CAN_BLOCK_ELUSIVES("BlockElusive", "Missing Translation"),
 
     //New
-    @SerializedName("Hallowed")HALLOWED("Hallowed", "After I die, for the rest of the game when allies attack, hallow your first attacker giving it +1|+0 that round"),
-    @SerializedName("Evolve")EVOLVE("Evolve", "I have +2|+2 once you've given or summoned allies with 6+ other positive keywords this game."),
+    @SerializedName("Equipment")EQUIPMENT("Equipment", "Equip to a unit to grant the listed bonuses. If the unit leaves play, the equipment will return to your hand. You may play each equipment at most once per round."),
+    @SerializedName("Flow")FLOW("Flow", "A card activates its Flow on Round Start if you played 2+ spells or skills last round."),
+
 
     //Other
     ALL("", "keyword for javafx");
