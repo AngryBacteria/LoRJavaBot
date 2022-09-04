@@ -75,6 +75,7 @@ public class LoREmbeds {
         List<String> landmarks = new ArrayList<>();
         List<String> followers = new ArrayList<>();
         List<String> spells = new ArrayList<>();
+        List<String> equipment = new ArrayList<>();
 
 
         for (CardAndAmount cardAndAmount : cardAndAmountArraylist) {
@@ -84,6 +85,9 @@ public class LoREmbeds {
 
             if (cardAndAmount.getCard().getType().equals(Type.SPELL))
                 spells.add(cardAndAmount.toString());
+
+            if (cardAndAmount.getCard().getType().equals(Type.EQUIPMENT))
+                equipment.add(cardAndAmount.toString());
 
             if (cardAndAmount.getCard().getType().equals(Type.UNIT) && cardAndAmount.getCard().getSupertype().equals(SuperType.CHAMPION))
                 champions.add(cardAndAmount.toString());
@@ -104,6 +108,9 @@ public class LoREmbeds {
 
         if (!landmarks.isEmpty())
             embed.addField("<:landmarkMR:968930227919138817> Landmarks", String.join("\n", landmarks), true);
+
+        if (!equipment.isEmpty())
+            embed.addField("<:equipmentMR:1015946882683506788> Equipment", String.join("\n", equipment), true);
 
         return embed;
 

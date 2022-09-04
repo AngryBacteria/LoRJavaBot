@@ -21,6 +21,7 @@ import no.stelar7.api.r4j.pojo.lor.ranked.LoRPlayerRank;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -292,10 +293,12 @@ public class SlashCommandHandler {
         this.executor.execute(
                 () -> {
             File file = null;
+            ArrayList<Button> buttons = new ArrayList<>();
+            buttons.add(Button.link("https://masteringruneterra.com/deck/" + deckCode, "MasteringRuneterra"));
             try {
                 file = new File(SeleniumHelper.getPictureFromURL4(deckCode));
                 event.getHook().editOriginalEmbeds(msg.build())
-                        .setActionRow(Button.link("https://masteringruneterra.com/deck/" + deckCode, "MasteringRuneterra"))
+                        .setActionRow(buttons)
                         .addFile(file, deckCode+".png")
                         .queue();
 

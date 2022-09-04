@@ -17,11 +17,19 @@ public class SeleniumHelper {
     public static void main(String[] args) {
         //Time speed test
         long start = System.currentTimeMillis();
-        try {
-            getPictureFromURL4("CICACAIFFAAQEBIKAECAKDYHAIDBOJJHFQXTKOACAEBAKCACAECRSHIDAEAQKAIBAICQOAQCAYOR4");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            getPictureFromURL4("CICACAIFFAAQEBIKAECAKDYHAIDBOJJHFQXTKOACAEBAKCACAECRSHIDAEAQKAIBAICQOAQCAYOR4");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+        System.setProperty("webdriver.chrome.driver", EnvReader.ENV_READER.getDriverLocation());
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--start-maximized","--window-size=2560,1440","--ignore-certificate-errors","--disable-dev-shm-usage");
+
+        WebDriver driver = new ChromeDriver(options);
+        driver.get("https://masteringruneterra.com/deck/" + "CUDACBQCEIAQMAZCAEDAYBIBAYDQKAQEA5WYEAICAYCQGBQDAEDAACQDAYDQIIBIAQCAODJ3PGAACAA");
+
         long finish = System.currentTimeMillis();
         long timeElapsed = finish - start;
         System.out.println(timeElapsed);
@@ -29,10 +37,10 @@ public class SeleniumHelper {
 
     public static String getPictureFromURL4(String code) throws IOException {
 
-        File tempfile = new File(EnvReader.ENV_READER.getImagesPath() + code + ".png");
-        if (tempfile.exists()){
-            return EnvReader.ENV_READER.getImagesPath() + code + ".png";
-        }
+//        File tempfile = new File(EnvReader.ENV_READER.getImagesPath() + code + ".png");
+//        if (tempfile.exists()){
+//            return EnvReader.ENV_READER.getImagesPath() + code + ".png";
+//        }
 
         System.setProperty("webdriver.chrome.driver", EnvReader.ENV_READER.getDriverLocation());
         ChromeOptions options = new ChromeOptions();
@@ -71,7 +79,7 @@ public class SeleniumHelper {
         System.setProperty("webdriver.chrome.driver", EnvReader.ENV_READER.getDriverLocation());
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized", "--window-size=2560,1440", "--ignore-certificate-errors", "--disable-dev-shm-usage");
-        options.addArguments("user-data-dir="+EnvReader.ENV_READER.getSelFilesPath());
+        //options.addArguments("user-data-dir="+EnvReader.ENV_READER.getSelFilesPath());
         WebDriver driver = new ChromeDriver(options);
         driver.get("https://masteringruneterra.com");
         Set<Cookie> cookies = driver.manage().getCookies();
@@ -84,6 +92,7 @@ public class SeleniumHelper {
 
         catch (IOException e) {
             System.out.println("Writing error jsons");
+            e.printStackTrace();
         }
         driver.quit();
     }
