@@ -17,18 +17,18 @@ public class SeleniumHelper {
     public static void main(String[] args) {
         //Time speed test
         long start = System.currentTimeMillis();
-//        try {
-//            getPictureFromURL4("CICACAIFFAAQEBIKAECAKDYHAIDBOJJHFQXTKOACAEBAKCACAECRSHIDAEAQKAIBAICQOAQCAYOR4");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
 
         System.setProperty("webdriver.chrome.driver", EnvReader.ENV_READER.getDriverLocation());
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized","--window-size=2560,1440","--ignore-certificate-errors","--disable-dev-shm-usage");
-
         WebDriver driver = new ChromeDriver(options);
         driver.get("https://masteringruneterra.com/deck/" + "CUDACBQCEIAQMAZCAEDAYBIBAYDQKAQEA5WYEAICAYCQGBQDAEDAACQDAYDQIIBIAQCAODJ3PGAACAA");
+
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         long finish = System.currentTimeMillis();
         long timeElapsed = finish - start;
@@ -69,7 +69,6 @@ public class SeleniumHelper {
         BufferedImage bufferedImage = ImageIO.read(screenshot);
         ImageIO.write(bufferedImage , "png", new File(EnvReader.ENV_READER.getImagesPath() + code + ".png"));
 
-        System.out.println("done");
         driver.quit();
         return EnvReader.ENV_READER.getImagesPath() + code + ".png";
     }

@@ -87,8 +87,6 @@ public class SlashCommandHandler {
             regex = "^(?i).*" + event.getOption("cardname").getAsString() + ".*$";
 
         List<Card> cards = Main.cardService.getCardByNameRegex(regex);
-        System.out.println(cards.size());
-        System.out.println(cards);
         if (cards.size() == 0){
             event.getHook().editOriginalEmbeds(BasicEmbeds.somethingWentWrongEmbed("No cards found with name `" + event.getOption("cardname").getAsString() + "`").build()).queue();
         }
@@ -144,7 +142,6 @@ public class SlashCommandHandler {
             return;
         }
         Region cardRegion = Main.cardService.getRegionByName(event.getOption("region").getAsString().trim()).get();
-        System.out.println(cardRegion);
         EmbedBuilder embed = LoREmbeds.regionEmbed(event, cardRegion);
         event.getHook().editOriginalEmbeds(embed.build()).queue();
         embed.clear();
@@ -232,8 +229,7 @@ public class SlashCommandHandler {
                                     .queue();
 
                         } catch (Exception e) {
-                            System.out.println(e.toString());
-                            System.out.println("Something went wrong when executing the command");
+                            e.printStackTrace();
                             event.getHook().editOriginalEmbeds(BasicEmbeds.somethingWentWrongEmbed("Deck Code `" + deckCode + "` not found").build()).queue();
                         }
                     });
@@ -283,7 +279,7 @@ public class SlashCommandHandler {
         try {
             msg.setDescription(LoRapiMethods.getDeckEmojiString(deckCode));
         } catch (Exception e) {
-            System.out.println(e.toString());
+            e.printStackTrace();
             msg.setDescription("");
         }
 
@@ -304,7 +300,6 @@ public class SlashCommandHandler {
 
             } catch (Exception e) {
                 e.printStackTrace();
-                System.out.println("Something went wrong when executing the command");
                 event.getHook().editOriginalEmbeds(BasicEmbeds.somethingWentWrongEmbed("Deck Code `" + deckCode + "` not found").build()).queue();
             }
         });
@@ -344,7 +339,7 @@ public class SlashCommandHandler {
                     .setActionRow(Button.link("https://masteringruneterra.com/deck/" + deckCode, "MasteringRuneterra")).queue();
         } catch (Exception e) {
             event.getHook().editOriginalEmbeds(BasicEmbeds.somethingWentWrongEmbed("`Deck Code not found`").build()).queue();
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 
