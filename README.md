@@ -1,3 +1,6 @@
+**Update June 2023**
+Sadly there is just no time for me to keep this project updated. It still works if you copy the source code and run it yourself, but the newest additions to the game are not in the bot anymore. Maybe in the future I can start working on it again, but for now this project is on hold :(
+
 **This is a companion bot for the Online-Cardgame Legends of Runeterra**
 
 It can display cards and decks as images or messages
